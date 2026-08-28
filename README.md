@@ -61,3 +61,17 @@ class AppDeviceAdminReceiver : DeviceAdminReceiver() {
         <wipe-data />
     </uses-policies>
 </device-admin>
+import android.app.Activity
+import android.app.admin.DevicePolicyManager
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+
+fun requestAdminPrivileges(activity: Activity) {
+    val componentName = ComponentName(activity, AppDeviceAdminReceiver::class.java)
+    val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).apply {
+        putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName)
+        putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Administrative rights are required to manage enterprise policies.")
+    }
+    activity.startActivity(intent)
+}
