@@ -1,4 +1,4 @@
-dependencies {
+⁵dependencies {
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 }
 import android.content.Context
@@ -43,3 +43,14 @@ class AppDeviceAdminReceiver : DeviceAdminReceiver() {
         Toast.makeText(context, "Device Admin Disabled", Toast.LENGTH_SHORT).show()
     }
 }
+<receiver
+    android:name=".AppDeviceAdminReceiver"
+    android:permission="android.permission.BIND_DEVICE_ADMIN"
+    android:exported="true">
+    <meta-data
+        android:name="android.app.device_admin"
+        android:resource="@xml/device_admin_policies" />
+    <intent-filter>
+        <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+    </intent-filter>
+</receiver>
