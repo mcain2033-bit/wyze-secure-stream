@@ -141,4 +141,13 @@ Private streaming gateway
   │
   │ authenticated + encrypted
   ▼
-Your device
+Your dJava?
+def establish(self, client_public_key_bytes: bytes):
+    try:
+        client_public = x25519.X25519PublicKey.from_public_bytes(
+            client_public_key_bytes
+        )
+        # ... rest of code
+    except Exception as e:
+        print(f"Key establishment failed: {e}")
+        raise
