@@ -54,3 +54,10 @@ class AppDeviceAdminReceiver : DeviceAdminReceiver() {
         <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
     </intent-filter>
 </receiver>
+<device-admin>
+    <uses-policies>
+        <limit-password />
+        <watch-login />
+        <wipe-data />
+    </uses-policies>
+</device-admin>
